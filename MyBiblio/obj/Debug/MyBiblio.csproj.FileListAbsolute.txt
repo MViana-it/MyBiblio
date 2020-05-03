@@ -1,0 +1,14 @@
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\MyBiblio.exe.config
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\MyBiblio.exe
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\MyBiblio.pdb
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\EntityFramework.dll
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\EntityFramework.xml
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csprojAssemblyReference.cache
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.Properties.Resources.resources
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csproj.GenerateResource.cache
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csproj.CoreCompileInputs.cache
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csproj.CopyComplete
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.exe
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.pdb

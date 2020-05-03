@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyBiblioModelStoreContainer" CdmEntityContainer="MyBiblioModelContainer">
+    <EntitySetMapping Name="LivrosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MyBiblioModel.Livros)">
+        <MappingFragment StoreEntitySet="LivrosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Subtitulo" ColumnName="Subtitulo" />
+          <ScalarProperty Name="Autores" ColumnName="Autores" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Editora" ColumnName="Editora" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Edicao" ColumnName="Edicao" />
+          <ScalarProperty Name="NrPaginas" ColumnName="NrPaginas" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="CDU" ColumnName="CDU" />
+          <ScalarProperty Name="Obs" ColumnName="Obs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExemplaresSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MyBiblioModel.Exemplares)">
+        <MappingFragment StoreEntitySet="ExemplaresSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cota" ColumnName="Cota" />
+          <ScalarProperty Name="Estante" ColumnName="Estante" />
+          <ScalarProperty Name="Requisitado" ColumnName="Requisitado" />
+          <ScalarProperty Name="LivrosId" ColumnName="LivrosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtentesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MyBiblioModel.Utentes)">
+        <MappingFragment StoreEntitySet="UtentesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmprestimosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MyBiblioModel.Emprestimos)">
+        <MappingFragment StoreEntitySet="EmprestimosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataEmprestimo" ColumnName="DataEmprestimo" />
+          <ScalarProperty Name="DataDevolucao" ColumnName="DataDevolucao" />
+          <ScalarProperty Name="ExemplaresId" ColumnName="ExemplaresId" />
+          <ScalarProperty Name="UtentesId" ColumnName="UtentesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

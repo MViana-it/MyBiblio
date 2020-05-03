@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MyBiblioModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="MyBiblioModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LivrosSet" EntityType="MyBiblioModel.Livros" />
+    <EntitySet Name="ExemplaresSet" EntityType="MyBiblioModel.Exemplares" />
+    <EntitySet Name="UtentesSet" EntityType="MyBiblioModel.Utentes" />
+    <EntitySet Name="EmprestimosSet" EntityType="MyBiblioModel.Emprestimos" />
+    <AssociationSet Name="LivrosExemplares" Association="MyBiblioModel.LivrosExemplares">
+      <End Role="Livros" EntitySet="LivrosSet" />
+      <End Role="Exemplares" EntitySet="ExemplaresSet" />
+    </AssociationSet>
+    <AssociationSet Name="ExemplaresEmprestimos" Association="MyBiblioModel.ExemplaresEmprestimos">
+      <End Role="Exemplares" EntitySet="ExemplaresSet" />
+      <End Role="Emprestimos" EntitySet="EmprestimosSet" />
+    </AssociationSet>
+    <AssociationSet Name="UtentesEmprestimos" Association="MyBiblioModel.UtentesEmprestimos">
+      <End Role="Utentes" EntitySet="UtentesSet" />
+      <End Role="Emprestimos" EntitySet="EmprestimosSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Livros">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" Nullable="false" />
+    <Property Name="Subtitulo" Type="String" Nullable="false" />
+    <Property Name="Autores" Type="String" Nullable="false" />
+    <Property Name="ISBN" Type="String" Nullable="true" />
+    <Property Name="Editora" Type="String" Nullable="false" />
+    <Property Name="Ano" Type="Int16" Nullable="false" />
+    <Property Name="Edicao" Type="Byte" Nullable="false" />
+    <Property Name="NrPaginas" Type="Int16" Nullable="false" />
+    <Property Name="Assunto" Type="String" Nullable="true" />
+    <Property Name="CDU" Type="String" Nullable="false" />
+    <Property Name="Obs" Type="String" Nullable="true" />
+    <NavigationProperty Name="Exemplares" Relationship="MyBiblioModel.LivrosExemplares" FromRole="Livros" ToRole="Exemplares" />
+  </EntityType>
+  <EntityType Name="Exemplares">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cota" Type="String" Nullable="false" />
+    <Property Name="Estante" Type="String" Nullable="false" />
+    <Property Name="Requisitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Livros" Relationship="MyBiblioModel.LivrosExemplares" FromRole="Exemplares" ToRole="Livros" />
+    <Property Name="LivrosId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Emprestimos" Relationship="MyBiblioModel.ExemplaresEmprestimos" FromRole="Exemplares" ToRole="Emprestimos" />
+  </EntityType>
+  <EntityType Name="Utentes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="Morada" Type="String" Nullable="false" />
+    <Property Name="Contacto" Type="String" Nullable="false" />
+    <Property Name="Mail" Type="String" Nullable="false" />
+    <NavigationProperty Name="Emprestimos" Relationship="MyBiblioModel.UtentesEmprestimos" FromRole="Utentes" ToRole="Emprestimos" />
+  </EntityType>
+  <EntityType Name="Emprestimos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataEmprestimo" Type="DateTime" Nullable="false" />
+    <Property Name="DataDevolucao" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Exemplares" Relationship="MyBiblioModel.ExemplaresEmprestimos" FromRole="Emprestimos" ToRole="Exemplares" />
+    <Property Name="ExemplaresId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Utentes" Relationship="MyBiblioModel.UtentesEmprestimos" FromRole="Emprestimos" ToRole="Utentes" />
+    <Property Name="UtentesId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="LivrosExemplares">
+    <End Type="MyBiblioModel.Livros" Role="Livros" Multiplicity="1" />
+    <End Type="MyBiblioModel.Exemplares" Role="Exemplares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Livros">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exemplares">
+        <PropertyRef Name="LivrosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExemplaresEmprestimos">
+    <End Type="MyBiblioModel.Exemplares" Role="Exemplares" Multiplicity="1" />
+    <End Type="MyBiblioModel.Emprestimos" Role="Emprestimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exemplares">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Emprestimos">
+        <PropertyRef Name="ExemplaresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UtentesEmprestimos">
+    <End Type="MyBiblioModel.Utentes" Role="Utentes" Multiplicity="1" />
+    <End Type="MyBiblioModel.Emprestimos" Role="Emprestimos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utentes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Emprestimos">
+        <PropertyRef Name="UtentesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
