@@ -12,3 +12,4 @@ C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csproj.CoreCom
 C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.csproj.CopyComplete
 C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.exe
 C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.pdb
+C:\Users\MarioViana\Projetos\MyBiblio\MyBiblio\obj\Debug\MyBiblio.FormPrincipal.resources
