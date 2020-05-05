@@ -4,7 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="933f78060650449286b8e807edce717c" Name="Diagram1" />
+      <Diagram DiagramId="933f78060650449286b8e807edce717c" Name="Diagram1" >
+        <EntityTypeShape EntityType="MyBiblioModel.Livros" Width="1.5" PointX="1.25" PointY="0.875" />
+        <EntityTypeShape EntityType="MyBiblioModel.Exemplares" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="MyBiblioModel.Utentes" Width="1.5" PointX="1.25" PointY="4.875" />
+        <EntityTypeShape EntityType="MyBiblioModel.Emprestimos" Width="1.5" PointX="5.75" PointY="4.875" />
+        <AssociationConnector Association="MyBiblioModel.LivrosExemplares" />
+        <AssociationConnector Association="MyBiblioModel.ExemplaresEmprestimos" />
+        <AssociationConnector Association="MyBiblioModel.UtentesEmprestimos" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
